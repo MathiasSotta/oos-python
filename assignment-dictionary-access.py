@@ -50,7 +50,18 @@ def is_offered(courses, lecture_id, monthyear):
             if i['lecture_id'] == lecture_id:
                 return True
 
+def when_offered(courses, lecture_id):
+    found = []
+    for i in courses:
+        q = courses[i]
+        for j in q:
+            if j['lecture_id'] == lecture_id:
+                found.append(i)
+    if found.__len__() > 0:
+        return found
+    else:
+        return 'Course NOT in list'
 
 print(is_offered(courses, 'NoSQL', 'mar2015'))
-#print(is_offered(courses, 'NoSQL', 'sep2014'))
+print(when_offered(courses, 'DB'))
 #print(is_offered(courses, 'P1', 'mar2015'))
