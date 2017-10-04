@@ -41,6 +41,7 @@ courses = {
               )
 }
 
+#exc1
 def is_offered(courses, lecture_id, monthyear):
     q = courses[monthyear]
 
@@ -50,6 +51,7 @@ def is_offered(courses, lecture_id, monthyear):
             if i['lecture_id'] == lecture_id:
                 return True
 
+#exc2
 def when_offered(courses, lecture_id):
     found = []
     for i in courses:
@@ -62,6 +64,31 @@ def when_offered(courses, lecture_id):
     else:
         return 'Course NOT in list'
 
+def involved(courses, person):
+    ls = []
+    found = {}
+    for i in courses:
+        q = courses[i]
+        for j in q:
+
+            if j['teacher'] == person:
+                    # cache course names found in current iteration
+                    ls.append(j['lecture_id'])
+                    # save courses of current iteration to dict
+                    found[i] =  ls
+        # reset list for next iteration
+        ls = []
+
+    if found.__len__() > 0:
+        return found
+    else:
+        return 'Teacher NOT in list'
+
+###########
+
+# call exc1
 print(is_offered(courses, 'NoSQL', 'mar2015'))
+# call exc2
 print(when_offered(courses, 'DB'))
-#print(is_offered(courses, 'P1', 'mar2015'))
+# call exc3
+print(involved(courses,'Preuss'))
