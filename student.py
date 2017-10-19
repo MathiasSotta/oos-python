@@ -47,4 +47,3 @@ if __name__ == "__main__":
     s1.get_details()
     s1.get_no_of_students()
     s1.get_course_participants("OOS")
-
