@@ -15,7 +15,7 @@ for link in soup.find_all('a'):
         href = link.get('href')
         m = re.search('(http\:\/\/)', href)
 
-# something isn't right
+# something isn't right?
         print(m.group(0))
 
 
