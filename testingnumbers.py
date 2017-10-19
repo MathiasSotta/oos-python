@@ -27,9 +27,9 @@ text2 = 'all zip files are compressed'
 
 q = "zip"
 
-j = str.find(text2, q)
+j = str.find(text, q)
 if j:
-    k = str.find(text2, q, j + 1)
+    k = str.find(text, q, j + 1)
     print(k)
 else:
     print(j)
@@ -63,3 +63,14 @@ countries = ({'country': "United States", 'capital': "Washington"},
 # Print out the all countries and their capital
 for i in countries:
     print(i['country'] + ", " + i['capital'])
+
+
+###
+import sys
+
+def printpaths(sys):
+
+    for path in sys.path:
+        print(path)
+
+printpaths(sys)

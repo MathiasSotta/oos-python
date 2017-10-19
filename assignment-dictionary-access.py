@@ -50,6 +50,8 @@ def is_offered(courses, lecture_id, monthyear):
         for i in q:
             if i['lecture_id'] == lecture_id:
                 return True
+            else:
+                return False
 
 #exc2
 def when_offered(courses, lecture_id):
@@ -87,8 +89,23 @@ def involved(courses, person):
 ###########
 
 # call exc1
-print(is_offered(courses, 'NoSQL', 'mar2015'))
+print(is_offered(courses, 'P1', 'mar2014'))
 # call exc2
 print(when_offered(courses, 'DB'))
 # call exc3
 print(involved(courses,'Preuss'))
+
+sudoku = ((8, 3, 5, 4, 1, 6, 0, 2, 7),  # correct sudoku
+          (2, 0, 6, 8, 5, 7, 4, 3, 1),
+          (4, 1, 7, 2, 0, 3, 6, 5, 8),
+          (5, 6, 0, 1, 3, 4, 7, 8, 2),
+          (1, 2, 3, 6, 7, 8, 5, 4, 0),
+          (7, 4, 8, 5, 2, 0, 1, 6, 3),
+          (6, 5, 2, 7, 8, 1, 3, 0, 4),
+          (0, 8, 1, 3, 4, 5, 2, 7, 6),
+          (3, 7, 4, 0, 6, 2, 8, 1, 5))
+
+z = zip(*sudoku)
+for i in z:
+    print(i)
+
