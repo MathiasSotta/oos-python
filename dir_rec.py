@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
-""" Display path contents recursively.
+""" Display given path contents recursively.
 
-    Output:
-        - type FILE or DIR for each entity
-        - entity name
-        - relative path from given directory
-        - MD5-Sum is provided for type FILE
+Output:
+    * type FILE or DIR for each entity
+    * entity name
+    * relative path from given directory
+    * MD5-Sum is provided for type FILE
 
 Usage:
   dir_rec.py PATH
