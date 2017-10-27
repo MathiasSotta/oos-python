@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
-""" Display given path contents recursively.
+""" Display contents of given path recursively.
 
 Output:
     * type FILE or DIR for each entity
@@ -19,9 +19,11 @@ Options:
     -h    Show help screen.
 
 """
-import os
 import hashlib
+import os
+
 from docopt import docopt
+
 
 def dir_rec(pt):
 
