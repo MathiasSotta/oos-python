@@ -3,6 +3,8 @@
 
 """ Display contents of given path recursively.
 
+__author__ = "Mathias Sotta"
+
 Output:
     * type FILE or DIR for each entity
     * entity name
