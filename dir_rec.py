@@ -1,34 +1,44 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
-''' Return contents of a given directory on std-out
+""" Display path contents recursively.
 
     Output:
-    - type FILE or DIR for each entity
-    - entity name
-    - relative path from given directory
-    - MD5-Sum is provided for type FILE
-'''
+        - type FILE or DIR for each entity
+        - entity name
+        - relative path from given directory
+        - MD5-Sum is provided for type FILE
 
+Usage:
+  dir_rec.py PATH
+
+Arguments:
+    PATH    path to start the output from (no quotation marks, please)
+
+Options:
+    -h    Show help screen.
+
+"""
 import os
 import hashlib
+from docopt import docopt
 
 def dir_rec(pt):
-    try:
 
-        p = os.listdir(pt)
-        for f in p:
-            # concat full path
-            fp = pt + os.sep + f
-            # print entity
-            print("type:" + type(fp), f, "[" + os.path.relpath(fp, os.path.dirname(pt)) + "]", md5(fp))
-            # scan dirs recursively
-            if(os.path.isdir(fp)):
-                dir_rec(fp)
-    # handle some errors
-    except (FileNotFoundError, PermissionError) as e:
-        print("Error:", e)
-        return None
+        try:
+            p = os.listdir(pt)
+            for f in p:
+                # concat full path
+                fp = pt + os.sep + f
+                # print entity
+                print("type:" + type(fp), f, "[" + os.path.relpath(fp, os.path.dirname(pt)) + "]", md5(fp))
+                # scan dirs recursively
+                if(os.path.isdir(fp)):
+                    dir_rec(fp)
+        # handle some potential errors
+        except (FileNotFoundError, PermissionError) as e:
+            print("Error:", e)
+            return None
 
 def md5(fil):
     if(os.path.isfile(fil)):
@@ -46,5 +56,5 @@ def type(pth):
 
 if __name__ == "__main__":
 
-    dir_rec('D:\\temp\\src\\')
-    #dir_rec('C:\\ProgramData\\')
+    args = docopt(__doc__)
+    dir_rec(args['PATH'])
